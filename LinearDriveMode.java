@@ -15,11 +15,11 @@ import org.firstinspires.ftc.teamcode.drive.robot.Robot;
 
 public class LinearDriveMode extends LinearOpMode {
     private Robot robot = null;
-    int direction = 1; 
-    double servoPosSlides = 0.5;
-    double servoPosGrippy = 0;
+    int direction = 1; //definesti o variabila de tip intreg
+    double servoPosSlides = 0.5;// o variabila de tip rational
+    double servoPosGrippy = 0;// o variabila de tip rational
     public double calculateThrottle(float x) {
-        int sign = -1;
+        int sign = -1; //definesti o variabila de tip intreg
         if (x > 0) sign = 1;
         return sign * 3 * abs(x);
     }
@@ -29,8 +29,8 @@ public class LinearDriveMode extends LinearOpMode {
         telemetry.addData(">", "Initializing...");
         telemetry.update();
 
-        robot = new Robot(hardwareMap);
-        while (robot.isInitialize() && opModeIsActive()) {
+        robot = new Robot(hardwareMap);// definesti un obiectul robot pe clasa Robot(hardwareMap)
+        while (robot.isInitialize() && opModeIsActive()) {//cat timp si primul si aldoile obiect sunt adevarte programul face un lucru
             idle();
         }
 
@@ -48,20 +48,20 @@ public class LinearDriveMode extends LinearOpMode {
 
 
 
-            if (gamepad2.left_bumper) {
+            if (gamepad2.left_bumper) {//daca se apasa left bumper  robot.crane.slidesDirection devine 1
                 robot.crane.slidesDirection = 1;
                 robot.crane.setSlides(5);
                 if(robot.crane.slideEncoderLastPosition > robot.crane.slideEncoder.getVoltage()){
                     robot.crane.slideExtension -= 3.3;
                 }
-            } else if (gamepad2.right_bumper) {
+            } else if (gamepad2.right_bumper) {//altfel daca se apasa right bumper robot.crane.slidesDirection devine -1
                 robot.crane.slidesDirection = -1;
                 robot.crane.setSlides(5);
-                if(robot.crane.slideEncoderLastPosition < robot.crane.slideEncoder.getVoltage()){
-                    robot.crane.slideExtension += 3.3;
+                if(robot.crane.slideEncoderLastPosition < robot.crane.slideEncoder.getVoltage()){ //daca  robot.crane.slideEncoderLastPosition mai mic robot.crane.slideEncoder.getVoltage() 
+                    robot.crane.slideExtension += 3.3;//atunci robot.crane.slideExtension += 3.3 devine 3.3
                 }
             } else {
-               robot.crane.setSlides(0);
+               robot.crane.setSlides(0);//
             }
             robot.crane.slideEncoderLastPosition = robot.crane.slideEncoder.getVoltage();
 
@@ -76,11 +76,11 @@ public class LinearDriveMode extends LinearOpMode {
             robot.crane.motorCrane2.setPower(robot.crane.cranePower(robot.crane.craneTarget));
 
             if (gamepad2.a) {
-                robot.crane.gripperDirection = 1;
+                robot.crane.gripperDirection = 1;//obiectul devine 1
                 robot.crane.setGripper(1);
             }
             else if (gamepad2.b) {
-                robot.crane.gripperDirection = -1;
+                robot.crane.gripperDirection = -1;//obiectul devine -1
                 robot.crane.setGripper(1);
             }
             else robot.crane.setGripper(0);
