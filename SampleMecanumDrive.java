@@ -34,9 +34,9 @@ import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequenceBuild
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequenceRunner;
 import org.firstinspires.ftc.teamcode.util.LynxModuleUtil;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;//adauga clasa ArrayList
+import java.util.Arrays;//adauga clasa Arrays
+import java.util.List;//adauga clasa List
 
 import static org.firstinspires.ftc.teamcode.drive.robot.DriveConstants.MAX_ACCEL;
 import static org.firstinspires.ftc.teamcode.drive.robot.DriveConstants.MAX_ANG_ACCEL;
@@ -49,9 +49,10 @@ import static org.firstinspires.ftc.teamcode.drive.robot.DriveConstants.encoderT
 import static org.firstinspires.ftc.teamcode.drive.robot.DriveConstants.kA;
 import static org.firstinspires.ftc.teamcode.drive.robot.DriveConstants.kStatic;
 import static org.firstinspires.ftc.teamcode.drive.robot.DriveConstants.kV;
+// pana aici s-au adaugat toate clasele necesare
 
 @Config
-public class  SampleMecanumDrive extends MecanumDrive {
+public class  SampleMecanumDrive extends MecanumDrive {//definesti o clasa
     public static PIDCoefficients TRANSLATIONAL_PID = new PIDCoefficients(0, 0, 0);
     public static PIDCoefficients HEADING_PID = new PIDCoefficients(0, 0, 0);
 
@@ -60,6 +61,7 @@ public class  SampleMecanumDrive extends MecanumDrive {
     public static double VX_WEIGHT = 1;
     public static double VY_WEIGHT = 1;
     public static double OMEGA_WEIGHT = 1;
+     //definesti 3 variabile de tip rational cu pana la 15 cifre dupa virgula
 
     private TrajectorySequenceRunner trajectorySequenceRunner;
 
